@@ -19,10 +19,10 @@ def main():
 	x = SCREEN_WIDTH / 2
 	y = SCREEN_HEIGHT / 2
 
-	updatable 		= pygame.sprite.Group()
-	drawable  		= pygame.sprite.Group()
-	asteroids 		= pygame.sprite.Group()
-	shots     = pygame.sprite.Group()
+	updatable 	= pygame.sprite.Group()
+	drawable  	= pygame.sprite.Group()
+	asteroids 	= pygame.sprite.Group()
+	shots     	= pygame.sprite.Group()
 
 	Player.containers 		 = (updatable, drawable)
 	Asteroid.containers 	 = (asteroids, updatable, drawable)
@@ -53,7 +53,7 @@ def main():
 			for shot in shots:
 				if ast.collision(shot):
 					shot.kill()
-					ast.kill()
+					ast.split()
 
 		pygame.display.flip()
 		dt = clock.tick(60) / 1000
